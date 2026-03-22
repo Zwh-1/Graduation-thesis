@@ -218,56 +218,5 @@
     },
     "shared": {
         "privacyProtectionSystem": "Privacy Protection System"
-    },
-    "connect": {
-        "title": "Connect Your Decentralized Health Identity",
-        "subtitle": "No username or password needed, wallet is your identity. Zero-knowledge proof protection: Your health data never leaves your local device.",
-        "badgeLocal": "Local Computation",
-        "badgeGas": "0 Gas Fees",
-        "badgeNoUpload": "No Data Upload",
-        "selectTitle": "Select Connection Method",
-        "recommended": "Recommended",
-        "installed": "Installed",
-        "fastest": "Fastest",
-        "connectBtn": "One-Click Connect",
-        "allWallets": "All Wallets",
-        "connect": "Connect",
-        "newUserTitle": "First time? Create your digital identity in just 1 minute.",
-        "demoMode": "Try Demo Mode",
-        "downloadWallet": "Download Recommended Wallet",
-        "privacyDisclaimer": "Privacy Commitment: We are a fully decentralized application (dApp). Your private keys always remain on your device. We (the developers) cannot access any of your data or assets.",
-        "stepConnecting": {
-            "title": "Connecting Identity",
-            "desc": "Retrieving public key address"
-        },
-        "stepSigning": {
-            "title": "Signing Verification",
-            "desc": "Signature only, no transfer, no Gas"
-        },
-        "stepInitializing": {
-            "title": "Activating Privacy Space",
-            "desc": "100% local completion, data stays on device"
-        },
-        "success": "Identity verified! Privacy space is ready.",
-        "errorConnect": "Connection failed, please retry",
-        "errorSign": "Signature rejected, please retry",
-        "errorInit": "Initialization failed, please retry",
-        "retry": "Retry",
-        "demoModalTitle": "Demo Mode",
-        "demoModalDesc": "Experience the magic of zero-knowledge proofs: Prove you're over 18 without showing your birthday. No real wallet connection needed, using preset test account.",
-        "demoModalClose": "Close",
-        "demoModalStart": "Start Experience",
-        "qrModalTitle": "Scan QR Code with Mobile Wallet",
-        "qrModalDesc": "Supports OKX Wallet, MetaMask, Trust Wallet, etc.",
-        "qrModalCancel": "Cancel",
-        "notSupported": "{walletId} not supported yet, please use MetaMask or scan QR code",
-        "noMetaMask": "MetaMask extension not detected",
-        "signMessage": "Welcome to Health Privacy System!\n\nThis signature is only to prove you own this wallet address. It will not incur any fees or transfers.\n\nAddress: {address}\nTimestamp: {timestamp}",
-        "connectingIdentity": "Connecting your decentralized identity...",
-        "verifyingIdentity": "Verifying your identity ownership...",
-        "buildingCircuit": "Building zero-knowledge proof circuit locally... (100% local completion)",
-        "privacySpaceCreated": "Privacy space created! Generating your first zero-knowledge proof...",
-        "welcomeBack": "Welcome back! Loading your privacy space...",
-        "walletConnectDesc": "Scan QR Code to Connect"
     }
 }
