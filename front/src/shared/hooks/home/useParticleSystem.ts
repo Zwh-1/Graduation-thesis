@@ -59,7 +59,7 @@ export function useParticleSystem(
       if (p.x < 0 || p.x > width) p.vx *= -1;
       if (p.y < 0 || p.y > height) p.vy *= -1;
 
-      // Mouse repel logic
+      // 鼠标排斥逻辑
       const dx = mouseRef.current.x - p.x;
       const dy = mouseRef.current.y - p.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
@@ -73,10 +73,10 @@ export function useParticleSystem(
   const drawParticles = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number) => {
     const isNight = config.isNight !== false;
 
-    // clear canvas
+    // 清空画布
     ctx.clearRect(0, 0, width, height);
 
-    // Draw dots
+    // 绘制粒子点
     ctx.fillStyle = isNight ? 'rgba(255, 255, 255, 0.5)' : 'rgba(79, 70, 229, 0.4)';
     particlesRef.current.forEach(p => {
       ctx.beginPath();
@@ -84,24 +84,24 @@ export function useParticleSystem(
       ctx.fill();
     });
 
-    // Draw connections (Batched for O(1) Context Draw Calls - Performance Essential)
+    // 绘制连接线（批量渲染优化：O(1) 上下文绘制调用 - 性能关键）
     ctx.strokeStyle = isNight ? 'rgba(255, 255, 255, 0.15)' : 'rgba(79, 70, 229, 0.15)';
     ctx.lineWidth = 1;
 
-    ctx.beginPath(); // Batch tracking paths in memory
+    ctx.beginPath(); // 批量跟踪路径到内存
     for (let i = 0; i < particlesRef.current.length; i++) {
       for (let j = i + 1; j < particlesRef.current.length; j++) {
         const dx = particlesRef.current[i].x - particlesRef.current[j].x;
         const dy = particlesRef.current[i].y - particlesRef.current[j].y;
         const dist = dx * dx + dy * dy;
 
-        if (dist < 12000) { // approx 110px threshold
+        if (dist < 12000) { // 约 110px 阈值
           ctx.moveTo(particlesRef.current[i].x, particlesRef.current[i].y);
           ctx.lineTo(particlesRef.current[j].x, particlesRef.current[j].y);
         }
       }
     }
-    ctx.stroke(); // Push all geometry to GPU in ONE single shot!
+    ctx.stroke(); // 一次性将所有几何体推送到 GPU！
   }, [config.isNight]);
 
   useEffect(() => {

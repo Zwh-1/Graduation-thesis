@@ -1,4 +1,4 @@
-// src/core/ui/providers.tsx
+// 核心 UI 提供者模块
 'use client';
 import { ConfigProvider } from 'antd';
 import { StyleProvider } from '@ant-design/cssinjs';
