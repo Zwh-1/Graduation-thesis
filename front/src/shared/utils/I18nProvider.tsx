@@ -55,15 +55,23 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     }, [locale, setLocale]);
 
     /**
-     * Translate a dot-notation key, e.g. t('hero.title')
+     * Translate a dot-notation key, e.g. t('hero.title') or t('connect.stepConnecting.title')
      * Falls back to the key itself if not found.
      */
     const t = useCallback((key: string): string => {
-        const [section, ...rest] = key.split('.');
-        const subKey = rest.join('.');
-        const dict = translations[locale];
-        const sectionDict = dict[section as keyof TranslationDict];
-        return (sectionDict?.[subKey as keyof typeof sectionDict] as string) ?? key;
+        const parts = key.split('.');
+        let result: unknown = translations[locale];
+        
+        // 逐级查找嵌套对象
+        for (const part of parts) {
+            if (result && typeof result === 'object' && part in result) {
+                result = (result as Record<string, unknown>)[part];
+            } else {
+                return key; // 找不到则返回原始 key
+            }
+        }
+        
+        return typeof result === 'string' ? result : key;
     }, [locale]);
 
     return (
