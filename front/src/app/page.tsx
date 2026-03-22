@@ -23,7 +23,7 @@ export default function HomePage() {
   const { currentMode, modeConfig } = useMode();
 
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col relative">
       {/* 滚动优化组件：进度条、回到顶部按钮 */}
       <ScrollOptimization />
       
@@ -35,14 +35,26 @@ export default function HomePage() {
       />
 
       {/* 导航栏 - sticky 定位，覆盖在内容之上 */}
-      <div className={`sticky top-0 z-50 shadow-sm transition-colors duration-300 ${isNight ? 'bg-slate-900 border-b border-slate-800' : 'bg-white border-b border-gray-100'}`}>
+      <div className={`sticky top-0 z-50 backdrop-blur-md shadow-lg transition-all duration-500 ${
+        isNight 
+          ? 'bg-slate-900/90 border-b border-slate-800/50' 
+          : 'bg-white/90 border-b border-gray-100/50'
+      }`}>
         <Menu
           mode="horizontal"
           theme={isNight ? "dark" : "light"}
-          className={`border-none bg-transparent flex justify-center ${isNight ? 'text-slate-300' : ''}`}
+          className={`border-none bg-transparent flex justify-center gap-2 ${
+            isNight ? 'text-slate-300' : ''
+          }`}
           items={modules.map(item => ({
             key: item.key,
-            label: item.key === 'trust' ? '信任背书' : item.key === 'workflow' ? '流程解析' : item.key === 'demo' ? '互动演示' : '底部行动',
+            label: (
+              <span className="px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-gradient-to-r hover:from-teal-500/10 hover:to-emerald-500/10">
+                {item.key === 'trust' ? '信任背书' : 
+                 item.key === 'workflow' ? '流程解析' : 
+                 item.key === 'demo' ? '互动演示' : '底部行动'}
+              </span>
+            ),
           }))}
           selectedKeys={[selectedKey]}
           onClick={({ key }) => {
@@ -60,10 +72,15 @@ export default function HomePage() {
       </div>
 
       {/* 按需渲染选中的模块 */}
-      <div className="flex-1 bg-white dark:bg-slate-900 transition-colors duration-300">
+      <div className={`flex-1 transition-colors duration-500 ${
+        isNight ? 'bg-gradient-to-b from-slate-900 to-slate-800' : 'bg-gradient-to-b from-white to-gray-50'
+      }`}>
         {modules.map((module) => (
           module.key === selectedKey && (
-            <div key={module.key} className="py-12 md:py-20 animate-fade-in">
+            <div 
+              key={module.key} 
+              className="py-12 md:py-20 animate-slide-up"
+            >
               <module.component />
             </div>
           )
