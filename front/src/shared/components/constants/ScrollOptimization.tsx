@@ -88,7 +88,6 @@ export default function ScrollOptimization() {
         className="scroll-progress-bar"
         style={{
           width: `${scrollProgress}%`,
-          opacity: isScrolling ? 1 : 0.7,
         }}
         aria-label={`滚动进度：${Math.round(scrollProgress)}%`}
       />
@@ -100,20 +99,20 @@ export default function ScrollOptimization() {
       >
         <button
           onClick={scrollToBottom}
-          className="p-2 hover:bg-white/20 rounded-full transition-colors"
           title="滚动到底部"
           aria-label="滚动到底部"
+          type="button"
         >
-          <ArrowDown size={20} strokeWidth={2.5} />
+          <ArrowDown size={18} strokeWidth={2.5} />
         </button>
         
         <button
           onClick={scrollToTop}
-          className="p-2 hover:bg-white/20 rounded-full transition-colors"
           title="回到顶部"
           aria-label="回到顶部"
+          type="button"
         >
-          <ArrowUp size={20} strokeWidth={2.5} />
+          <ArrowUp size={18} strokeWidth={2.5} />
         </button>
       </div>
     </>

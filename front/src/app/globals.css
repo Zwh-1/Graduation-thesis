@@ -148,23 +148,17 @@ html {
 /* 回到顶部按钮 */
 .scroll-to-top-btn {
   position: fixed;
-  bottom: 2rem;
+  bottom: 4rem;
   right: 2rem;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: var(--primary);
-  color: var(--primary-foreground);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 9998;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .scroll-to-top-btn.visible {
@@ -173,21 +167,52 @@ html {
   transform: translateY(0);
 }
 
-.scroll-to-top-btn:hover {
-  background: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+.scroll-to-top-btn button {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0d9488 0%, #10b981 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3),
+              0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
 }
 
-.scroll-to-top-btn:active {
-  transform: translateY(-1px);
+.scroll-to-top-btn button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(13, 148, 136, 0.5),
+              0 4px 8px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.scroll-to-top-btn button:active {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.4);
+}
+
+/* 分隔线 */
+.scroll-to-top-btn::after {
+  content: '';
+  width: 1px;
+  height: 8px;
+  background: linear-gradient(to bottom, #0d9488, #10b981);
+  margin: 0 auto;
+  opacity: 0.5;
 }
 
 /* 移动端适配 */
 @media (max-width: 768px) {
   .scroll-to-top-btn {
-    bottom: 1rem;
+    bottom: 2rem;
     right: 1rem;
+  }
+  
+  .scroll-to-top-btn button {
     width: 2.5rem;
     height: 2.5rem;
   }

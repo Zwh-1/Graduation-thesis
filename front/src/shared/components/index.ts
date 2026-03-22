@@ -5,7 +5,7 @@ export { default as LoadingScreen } from './LoadingScreen';
 export { default as Navbar } from './constants/Navbar';
 export { default as ImageNext } from './constants/Image';
 export { default as PageContainer } from './PageContainer';
-
+export { default as ScrollOptimization } from './constants/ScrollOptimization';
 // 导出客户端组件
 export { default as HealthForm } from './_client/HealthForm';
 export { default as ProofCard } from './_client/ProofCard';

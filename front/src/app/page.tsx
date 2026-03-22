@@ -8,7 +8,7 @@ import {
 } from '@/features/home/index';
 import { useTheme } from '@/shared/utils/ThemeProvider';
 import { useMode } from '@/shared/hooks/home/useModeContext';
-import ScrollOptimization from '@/shared/components/ScrollOptimization';
+import { ScrollOptimization } from '@/shared/components/index';
 
 // 定义模块配置数组（用于一次性渲染所有组件）
 const modules = [
