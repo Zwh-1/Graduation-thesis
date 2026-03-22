@@ -20,6 +20,7 @@
         "badgeGas": "0 Gas Fees",
         "badgeNoUpload": "No Data Upload",
         "selectTitle": "Select Wallet",
+        "recommended": "Recommended",
         "walletConnectDesc": "Scan to connect any wallet",
         "connectingIdentity": "Connecting your decentralized identity...",
         "notSupported": "{walletId} is not supported yet. Please use MetaMask or scan to connect",
