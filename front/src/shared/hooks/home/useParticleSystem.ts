@@ -51,7 +51,7 @@ export function useParticleSystem(
       p.x += p.vx;
       p.y += p.vy;
 
-      // scroll parallax effect
+      // 滚动视差效果
       if (scrollPos > 0) {
         p.y -= scrollPos * 0.2 * Math.sign(p.vy || 1);
       }

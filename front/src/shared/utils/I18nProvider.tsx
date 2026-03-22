@@ -4,12 +4,12 @@ import { createContext, useContext, useState, useEffect, useCallback, type React
 import zh from '@/locales/zh.json';
 import en from '@/locales/en.json';
 
-// ==================== Types ====================
+// ==================== 类型定义 ====================
 
 type Locale = 'zh' | 'en';
 type TranslationDict = typeof zh;
 
-// Dot-notation key path resolver (up to 2 levels)
+// 点号分隔的键路径解析器（最多 2 级）
 type DotPath = {
     [K in keyof TranslationDict]: {
         [SK in keyof TranslationDict[K]]: `${K & string}.${SK & string}`;
@@ -34,7 +34,7 @@ const translations: Record<Locale, TranslationDict> = { zh, en };
 export function I18nProvider({ children }: { children: ReactNode }) {
     const [locale, setLocaleState] = useState<Locale>('zh');
 
-    // Restore saved language preference on client mount
+    // 客户端挂载时恢复保存的语言偏好
     useEffect(() => {
         const saved = localStorage.getItem('locale') as Locale | null;
         if (saved === 'zh' || saved === 'en') {

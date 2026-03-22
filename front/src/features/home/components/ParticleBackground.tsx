@@ -17,7 +17,7 @@ interface ParticleSystemConfig {
  * 粒子背景组件 Props
  */
 interface ParticleBackgroundProps {
-  /** 滚动进度 (0-1) */
+  /** 滚动进度（0-1） */
   scrollProgress?: number;
   /** 粒子数量（可选，默认 200） */
   particleCount?: number;

@@ -11,7 +11,7 @@ interface HeroSectionProps {
     compactTitle?: string // 紧凑模式下的标题
     compactSubtitle?: string // 紧凑模式下的副标题
     backgroundImage?: string // 背景图片 URL（可选）
-    onCtaClick?: () => void // CTA 按钮点击回调
+    onCtaClick?: () => void // CTA 按钮点击回调函数
     performanceMode?: boolean // 性能模式（减少粒子数量）
     enableParticles?: boolean // 是否启用粒子背景
     isNight?: boolean // 是否为夜间模式

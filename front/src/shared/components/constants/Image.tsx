@@ -19,7 +19,7 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   /** 自定义样式类名 */
   className?: string;
   /** 图片加载策略：lazy=懒加载 | eager=立即加载 */
-  loading?: 'lazy' | 'eager';
+  loading?: 'lazy' | 'eager'; // 加载策略
 }
 
 // ==========================================
