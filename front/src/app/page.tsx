@@ -8,6 +8,7 @@ import {
 } from '@/features/home/index';
 import { useTheme } from '@/shared/utils/ThemeProvider';
 import { useMode } from '@/shared/hooks/home/useModeContext';
+import ScrollOptimization from '@/shared/components/ScrollOptimization';
 
 // 定义模块配置数组（用于一次性渲染所有组件）
 const modules = [
@@ -23,6 +24,9 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col">
+      {/* 滚动优化组件：进度条、回到顶部按钮 */}
+      <ScrollOptimization />
+      
       {/* HeroSection - 顶部，预留导航栏空间 */}
       <HeroSection
         enableParticles={modeConfig.particles}
@@ -41,7 +45,16 @@ export default function HomePage() {
             label: item.key === 'trust' ? '信任背书' : item.key === 'workflow' ? '流程解析' : item.key === 'demo' ? '互动演示' : '底部行动',
           }))}
           selectedKeys={[selectedKey]}
-          onClick={({ key }) => setSelectedKey(key)}
+          onClick={({ key }) => {
+            setSelectedKey(key);
+            // 平滑滚动到内容区域顶部
+            setTimeout(() => {
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+              });
+            }, 100);
+          }}
           style={{ minWidth: 'auto' }}
         />
       </div>
