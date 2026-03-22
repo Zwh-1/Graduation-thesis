@@ -316,7 +316,7 @@
 .hero-section {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: visible; /* 允许滚动，防止页面卡住 */
   font-family: sans-serif;
 }
 

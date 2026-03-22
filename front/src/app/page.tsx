@@ -22,7 +22,7 @@ export default function HomePage() {
   const { currentMode, modeConfig } = useMode();
 
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex flex-col">
       {/* HeroSection - 顶部，预留导航栏空间 */}
       <HeroSection
         enableParticles={modeConfig.particles}
@@ -47,7 +47,7 @@ export default function HomePage() {
       </div>
 
       {/* 按需渲染选中的模块 */}
-      <div className="flex-1 bg-white dark:bg-slate-900 transition-colors duration-300 min-h-screen">
+      <div className="flex-1 bg-white dark:bg-slate-900 transition-colors duration-300">
         {modules.map((module) => (
           module.key === selectedKey && (
             <div key={module.key} className="py-12 md:py-20 animate-fade-in">

@@ -92,18 +92,28 @@ export default function HeroSection({
      * 计算滚动进度、速度，并更新状态
      */
     const handleScroll = () => {
-        const currentScroll = window.scrollY
+        try {
+            const currentScroll = window.scrollY
 
-        // 计算滚动速度（当前滚动位置 - 上一帧滚动位置）
-        const velocity = currentScroll - lastScrollYRef.current
-        setScrollVelocity(velocity)
+            // 边界检查：防止滚动位置异常
+            if (currentScroll < 0 || isNaN(currentScroll)) {
+                console.warn('检测到异常滚动位置:', currentScroll)
+                return
+            }
 
-        // 更新上一帧滚动位置
-        lastScrollYRef.current = currentScroll
+            // 计算滚动速度（当前滚动位置 - 上一帧滚动位置）
+            const velocity = currentScroll - lastScrollYRef.current
+            setScrollVelocity(velocity)
 
-        // 计算滚动进度（0-1）
-        const progress = calculateScrollProgress(currentScroll, SCROLL_CONFIG)
-        setScrollProgress(progress)
+            // 更新上一帧滚动位置
+            lastScrollYRef.current = currentScroll
+
+            // 计算滚动进度（0-1）
+            const progress = calculateScrollProgress(currentScroll, SCROLL_CONFIG)
+            setScrollProgress(progress)
+        } catch (error) {
+            console.error('滚动处理失败:', error)
+        }
     }
 
     /**
