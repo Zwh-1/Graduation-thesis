@@ -1,0 +1,133 @@
+/* ==================== 暗黑模式主题变量 ==================== */
+
+/* ================= 暗黑模式背景 ================= */
+.dark .bg-light-mode {
+  background-color: rgb(17, 24, 39);
+}
+
+.dark .bg-privacy-light {
+  background-color: rgb(15, 23, 42);
+}
+
+/* ================= 暗黑模式文字颜色 ================= */
+.dark .text-slate-900 {
+  color: white;
+}
+
+.dark .text-slate-600 {
+  color: rgb(203, 213, 225);
+}
+
+.dark .text-slate-400 {
+  color: rgb(148, 163, 184);
+}
+
+.dark .text-slate-500 {
+  color: rgb(100, 116, 139);
+}
+
+.dark .text-slate-700 {
+  color: rgb(209, 213, 219);
+}
+
+/* ================= 暗黑模式边框 ================= */
+.dark .border-slate-200 {
+  border-color: rgb(75, 85, 99);
+}
+
+.dark .border-slate-700 {
+  border-color: rgb(55, 65, 81);
+}
+
+/* ================= 暗黑模式背景色 ================= */
+.dark .bg-white {
+  background-color: rgb(31, 41, 55);
+}
+
+.dark .bg-slate-50 {
+  background-color: rgb(15, 23, 42);
+}
+
+.dark .bg-slate-800 {
+  background-color: rgb(17, 24, 39);
+}
+
+/* ================= 暗黑模式阴影 ================= */
+.dark .shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.dark .shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* ================= 暗黑模式按钮 ================= */
+.dark .btn-primary {
+  background-color: rgb(15, 118, 110);
+  box-shadow: 0 6px 8px -1px rgba(13, 148, 136, 0.7);
+}
+
+.dark .btn-secondary {
+  background-color: rgb(31, 41, 55);
+  color: rgb(203, 213, 225);
+  border-color: rgb(75, 85, 99);
+}
+
+/* ================= 暗黑模式卡片 ================= */
+.dark .card-base {
+  background-color: rgb(31, 41, 55);
+  border-color: rgb(75, 85, 99);
+}
+
+/* ================= 暗黑模式输入框 ================= */
+.dark .input-base {
+  background-color: rgb(15, 23, 42);
+  border-color: rgb(75, 85, 99);
+  color: white;
+}
+
+/* ================= 暗黑模式状态指示器 ================= */
+.dark .status-indicator.idle {
+  background-color: rgb(15, 23, 42);
+}
+
+.dark .status-indicator.proving {
+  background-color: rgb(15, 23, 42);
+}
+
+.dark .status-indicator.verified {
+  background-color: rgb(15, 23, 42);
+}
+
+/* ================= 暗黑模式结果卡片 ================= */
+.dark .result-card.success {
+  background-color: rgba(5, 150, 105, 0.1);
+  color: rgb(134, 239, 172);
+}
+
+.dark .result-card.failure {
+  background-color: rgba(220, 38, 38, 0.1);
+  color: rgb(252, 165, 165);
+}
+
+/* ================= 暗黑模式动画 ================= */
+.dark .animate-pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.dark .animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ================= 暗黑模式过渡 ================= */
+.dark .transition-bg {
+  transition: background-color 300ms ease;
+}
+
+.dark .transition-color {
+  transition: color 300ms ease;
+}
+
+.dark .transition-all {
+  transition: all 300ms ease;
+}

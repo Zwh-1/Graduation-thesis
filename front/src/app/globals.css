@@ -1,0 +1,568 @@
+/* Tailwind CSS 基础样式导入 */
+@import "tailwindcss";
+
+/* 自定义全局样式 */
+:root {
+  --background: oklch(0.9816 0.0019 247.8577);
+  --foreground: oklch(0.1448 0.0046 264.5313);
+  --card: oklch(1.0000 0 0);
+  --card-foreground: oklch(0.1448 0.0046 264.5313);
+  --popover: oklch(1.0000 0 0);
+  --popover-foreground: oklch(0.1448 0.0046 264.5313);
+  --primary: oklch(0.6036 0.1331 250.2920);
+  --primary-foreground: oklch(1.0000 0 0);
+  --secondary: oklch(0.9683 0.0069 247.8959);
+  --secondary-foreground: oklch(0.4474 0.0431 257.4138);
+  --muted: oklch(0.9683 0.0069 247.8959);
+  --muted-foreground: oklch(0.5560 0.0147 257.8663);
+  --accent: oklch(0.9683 0.0069 247.8959);
+  --accent-foreground: oklch(0.1448 0.0046 264.5313);
+  --destructive: oklch(0.5555 0.1546 26.4998);
+  --destructive-foreground: oklch(1.0000 0 0);
+  --border: oklch(0.9288 0.0126 255.5078);
+  --input: oklch(0.9288 0.0126 255.5078);
+  --ring: oklch(0.6036 0.1331 250.2920);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: oklch(0.1448 0.0046 264.5313);
+  --foreground: oklch(0.9816 0.0019 247.8577);
+  --card: oklch(0.1913 0.0036 259.2020);
+  --card-foreground: oklch(0.9816 0.0019 247.8577);
+  --popover: oklch(0.1913 0.0036 259.2020);
+  --popover-foreground: oklch(0.9816 0.0019 247.8577);
+  --primary: oklch(0.6036 0.1331 250.2920);
+  --primary-foreground: oklch(1.0000 0 0);
+  --secondary: oklch(0.2575 0.0066 255.0818);
+  --secondary-foreground: oklch(0.8972 0.0126 255.5602);
+  --muted: oklch(0.2575 0.0066 255.0818);
+  --muted-foreground: oklch(0.7087 0.0129 256.7878);
+  --accent: oklch(0.2575 0.0066 255.0818);
+  --accent-foreground: oklch(0.9816 0.0019 247.8577);
+  --destructive: oklch(0.6574 0.1805 25.5645);
+  --destructive-foreground: oklch(1.0000 0 0);
+  --border: oklch(0.2575 0.0066 255.0818);
+  --input: oklch(0.2575 0.0066 255.0818);
+  --ring: oklch(0.6036 0.1331 250.2920);
+}
+
+/* 主题切换平滑过渡 */
+* {
+  transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+}
+
+/* 基础重置 */
+* {
+  border-color: var(--border);
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* 选择文本样式 */
+::selection {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* 焦点样式 */
+*:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ================= 容器样式 ================= */
+.container-base {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-base {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-base {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ================= 暗黑模式背景切换 ================= */
+.bg-light-mode {
+  background-color: white;
+}
+
+.bg-dark-mode {
+  background-color: rgb(17, 24, 39);
+}
+
+.bg-privacy-light {
+  background-color: rgb(248, 250, 252);
+}
+
+.bg-privacy-dark {
+  background-color: rgb(15, 23, 42);
+}
+
+/* ================= 过渡效果 ================= */
+.transition-bg {
+  transition: background-color 300ms ease;
+}
+
+.transition-color {
+  transition: color 300ms ease;
+}
+
+.transition-all {
+  transition: all 300ms ease;
+}
+
+/* ================= 动画关键帧 ================= */
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-0.5rem);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ================= 按钮样式 ================= */
+.btn-primary {
+  background-color: rgb(13, 148, 136);
+  color: white;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 300ms ease;
+  box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.5);
+}
+
+.btn-primary:hover {
+  background-color: rgb(15, 118, 110);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 8px -1px rgba(13, 148, 136, 0.7);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: rgb(75, 85, 99);
+  border: 1px solid rgb(203, 213, 225);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 300ms ease;
+}
+
+.dark .btn-secondary {
+  background-color: rgb(31, 41, 55);
+  color: rgb(203, 213, 225);
+  border-color: rgb(75, 85, 99);
+}
+
+.btn-secondary:hover {
+  background-color: rgb(249, 250, 251);
+  border-color: rgb(148, 163, 184);
+}
+
+.dark .btn-secondary:hover {
+  background-color: rgb(15, 23, 42);
+}
+
+/* ================= 输入框样式 ================= */
+.input-base {
+  width: 100%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: rgb(241, 245, 249);
+  border: 1px solid rgb(203, 213, 225);
+  border-radius: 0.375rem;
+  transition: all 300ms ease;
+  outline: none;
+  font-family: monospace;
+  font-size: 0.875rem;
+}
+
+.dark .input-base {
+  background-color: rgb(15, 23, 42);
+  border-color: rgb(75, 85, 99);
+  color: white;
+}
+
+.input-base:focus {
+  ring-width: 2px;
+  ring-color: rgb(13, 148, 136);
+  border-color: rgb(13, 148, 136);
+}
+
+/* ================= 标题样式 ================= */
+.title-section {
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  transition: color 300ms ease;
+}
+
+.dark .title-section {
+  color: white;
+}
+
+@media (min-width: 640px) {
+  .title-section {
+    font-size: 2.25rem;
+  }
+}
+
+.subtitle-section {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  color: rgb(71, 85, 105);
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  transition: color 300ms ease;
+}
+
+.dark .subtitle-section {
+  color: rgb(203, 213, 225);
+}
+
+/* ================= 卡片样式 ================= */
+.card-base {
+  background-color: white;
+  border-radius: 1rem;
+  border: 1px solid rgb(203, 213, 225);
+  padding: 2rem;
+  transition: all 300ms ease;
+}
+
+.dark .card-base {
+  background-color: rgb(31, 41, 55);
+  border-color: rgb(75, 85, 99);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  margin-bottom: 1.5rem;
+  transition: color 300ms ease;
+}
+
+.dark .card-title {
+  color: white;
+}
+
+/* ================= 状态指示器 ================= */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+}
+
+.status-indicator.idle {
+  background-color: rgb(241, 245, 249);
+  color: rgb(148, 163, 184);
+}
+
+.dark .status-indicator.idle {
+  background-color: rgb(15, 23, 42);
+}
+
+.status-indicator.proving {
+  background-color: rgb(241, 245, 249);
+  color: rgb(13, 148, 136);
+  animation: spin 1s linear infinite;
+}
+
+.dark .status-indicator.proving {
+  background-color: rgb(15, 23, 42);
+}
+
+.status-indicator.verified {
+  background-color: rgb(240, 249, 255);
+  color: rgb(34, 197, 94);
+}
+
+.dark .status-indicator.verified {
+  background-color: rgb(15, 23, 42);
+}
+
+/* ================= 结果卡片 ================= */
+.result-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.result-card.success {
+  background-color: rgb(240, 255, 240);
+  color: rgb(22, 163, 74);
+}
+
+.dark .result-card.success {
+  background-color: rgba(5, 150, 105, 0.1);
+  color: rgb(134, 239, 172);
+}
+
+.result-card.failure {
+  background-color: rgb(255, 240, 240);
+  color: rgb(220, 38, 38);
+}
+
+.dark .result-card.failure {
+  background-color: rgba(220, 38, 38, 0.1);
+  color: rgb(252, 165, 165);
+}
+
+/* ================= 动画工具类 ================= */
+.animate-pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease;
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 20s linear infinite;
+}
+
+/* ==================== 暗黑模式主题变量 ==================== */
+
+/* ================= 暗黑模式背景 ================= */
+.dark .bg-light-mode {
+  background-color: rgb(17, 24, 39);
+}
+
+.dark .bg-privacy-light {
+  background-color: rgb(15, 23, 42);
+}
+
+/* ================= 暗黑模式文字颜色 ================= */
+.dark .text-slate-900 {
+  color: white;
+}
+
+.dark .text-slate-600 {
+  color: rgb(203, 213, 225);
+}
+
+.dark .text-slate-400 {
+  color: rgb(148, 163, 184);
+}
+
+.dark .text-slate-500 {
+  color: rgb(100, 116, 139);
+}
+
+.dark .text-slate-700 {
+  color: rgb(209, 213, 219);
+}
+
+/* ================= 暗黑模式边框 ================= */
+.dark .border-slate-200 {
+  border-color: rgb(75, 85, 99);
+}
+
+.dark .border-slate-700 {
+  border-color: rgb(55, 65, 81);
+}
+
+/* ================= 暗黑模式背景色 ================= */
+.dark .bg-white {
+  background-color: rgb(31, 41, 55);
+}
+
+.dark .bg-slate-50 {
+  background-color: rgb(15, 23, 42);
+}
+
+.dark .bg-slate-800 {
+  background-color: rgb(17, 24, 39);
+}
+
+/* ================= 暗黑模式阴影 ================= */
+.dark .shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.dark .shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* ================= 暗黑模式按钮 ================= */
+.dark .btn-primary {
+  background-color: rgb(15, 118, 110);
+  box-shadow: 0 6px 8px -1px rgba(13, 148, 136, 0.7);
+}
+
+.dark .btn-secondary {
+  background-color: rgb(31, 41, 55);
+  color: rgb(203, 213, 225);
+  border-color: rgb(75, 85, 99);
+}
+
+/* ================= 暗黑模式卡片 ================= */
+.dark .card-base {
+  background-color: rgb(31, 41, 55);
+  border-color: rgb(75, 85, 99);
+}
+
+/* ================= 暗黑模式输入框 ================= */
+.dark .input-base {
+  background-color: rgb(15, 23, 42);
+  border-color: rgb(75, 85, 99);
+  color: white;
+}
+
+/* ================= 暗黑模式状态指示器 ================= */
+.dark .status-indicator.idle {
+  background-color: rgb(15, 23, 42);
+}
+
+.dark .status-indicator.proving {
+  background-color: rgb(15, 23, 42);
+}
+
+.dark .status-indicator.verified {
+  background-color: rgb(15, 23, 42);
+}
+
+/* ================= 暗黑模式结果卡片 ================= */
+.dark .result-card.success {
+  background-color: rgba(5, 150, 105, 0.1);
+  color: rgb(134, 239, 172);
+}
+
+.dark .result-card.failure {
+  background-color: rgba(220, 38, 38, 0.1);
+  color: rgb(252, 165, 165);
+}
+
+/* ================= 暗黑模式动画 ================= */
+.dark .animate-pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.dark .animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ================= 暗黑模式过渡 ================= */
+.dark .transition-bg {
+  transition: background-color 300ms ease;
+}
+
+.dark .transition-color {
+  transition: color 300ms ease;
+}
+
+.dark .transition-all {
+  transition: all 300ms ease;
+}

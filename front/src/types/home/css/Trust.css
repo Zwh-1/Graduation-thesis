@@ -1,0 +1,328 @@
+/* ================= TrustSection 样式文件 ================= */
+
+/* ================= 无限滚动轮播容器 ================= */
+.carousel-container {
+  position: relative;
+  margin-bottom: 5rem;
+}
+
+/* 渐变遮罩 - 左侧 */
+.carousel-gradient-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6rem;
+  background: linear-gradient(to right, white, transparent);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.dark .carousel-gradient-left {
+  background: linear-gradient(to right, rgb(17, 24, 39), transparent);
+}
+
+/* 渐变遮罩 - 右侧 */
+.carousel-gradient-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 6rem;
+  background: linear-gradient(to left, white, transparent);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.dark .carousel-gradient-right {
+  background: linear-gradient(to left, rgb(17, 24, 39), transparent);
+}
+
+/* 滚动轨道容器 */
+.carousel-track {
+  overflow: hidden;
+  white-space: nowrap;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* 动画轨道 */
+.carousel-animation-track {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  width: max-content;
+  animation-name: infinite-scroll;
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+  /* Force hardware acceleration */
+  transform: translateZ(0);
+  /* Promote to GPU layer */
+}
+
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0) translateZ(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 2rem)) translateZ(0);
+  }
+}
+
+.carousel-animation-track:hover {
+  animation-play-state: paused;
+}
+
+/* 合作伙伴卡片容器 */
+.partner-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Logo 包装器 */
+.partner-logo-wrapper {
+  position: relative;
+  width: 8rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 300ms ease;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  background-color: rgb(249, 250, 251);
+}
+
+.dark .partner-logo-wrapper {
+  background-color: rgb(31, 41, 55);
+}
+
+.partner-logo-wrapper:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+/* Logo 图片 */
+.partner-logo {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Logo 名称提示 */
+.partner-name-hint {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: rgb(156, 163, 175);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.partner-card:hover .partner-name-hint {
+  opacity: 1;
+}
+
+
+/* 演示模式提示 */
+.demo-mode-badge {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: rgba(20, 184, 166, 0.1);
+  color: #14b8a6;
+  border: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+.dark .demo-mode-badge {
+  background-color: rgba(20, 184, 166, 0.15);
+  border-color: rgba(20, 184, 166, 0.3);
+  color: #2dd4bf;
+}
+
+/* 演示模式点 */
+.demo-pulse-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: #14b8a6;
+  border-radius: 9999px;
+}
+
+/* ================= 技术特性网格 ================= */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* 特性卡片容器 */
+.feature-card {
+  position: relative;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 1rem;
+  border: 1px solid rgb(229, 231, 235);
+  border-left: 3px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #0d9488 0%, #10b981 100%);
+  border-radius: 1rem 0 0 1rem;
+}
+
+.dark .feature-card {
+  background-color: rgb(31, 41, 55);
+  border-color: rgb(55, 65, 81);
+}
+
+.feature-card:hover {
+  box-shadow: 0 12px 30px -5px rgba(13, 148, 136, 0.12), 0 8px 15px -3px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  border-color: rgba(13, 148, 136, 0.2);
+}
+
+/* 背景装饰色块 */
+.feature-bg-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6rem;
+  height: 6rem;
+  opacity: 0.2;
+  border-bottom-left-radius: 9999px;
+  margin-right: -1rem;
+  margin-top: -1rem;
+  transition: transform 300ms ease;
+}
+
+.feature-card:hover .feature-bg-accent {
+  transform: scale(1.1);
+}
+
+/* 图标容器 */
+.feature-icon-container {
+  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background: radial-gradient(circle, rgba(13, 148, 136, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  border: 1px solid rgba(13, 148, 136, 0.15);
+  box-shadow: 0 1px 3px rgba(13, 148, 136, 0.1);
+}
+
+.dark .feature-icon-container {
+  background: radial-gradient(circle, rgba(45, 212, 191, 0.1) 0%, rgba(31, 41, 55, 0) 70%);
+  border-color: rgba(45, 212, 191, 0.15);
+  box-shadow: 0 1px 3px rgba(45, 212, 191, 0.08);
+}
+
+/* 特性标题 */
+.feature-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: rgb(17, 24, 39);
+  margin-bottom: 0.5rem;
+}
+
+.dark .feature-title {
+  color: white;
+}
+
+/* 特性描述 */
+.feature-desc {
+  font-size: 0.875rem;
+  color: rgb(107, 114, 128);
+  line-height: 1.625;
+  margin-bottom: 0;
+}
+
+.dark .feature-desc {
+  color: rgb(156, 163, 175);
+}
+
+/* 底部分割线 */
+.feature-bottom-divider {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(229, 231, 235);
+}
+
+.dark .feature-bottom-divider {
+  border-top-color: rgb(75, 85, 99);
+}
+
+/* 状态标记 */
+.status-badge {
+  font-size: 0.625rem;
+  font-family: monospace;
+  color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+}
+
+/* ================= 底部说明 ================= */
+.trust-bottom-cta {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.trust-bottom-text {
+  font-size: 0.875rem;
+  color: rgb(156, 163, 175);
+}
+
+.trust-code-highlight {
+  background-color: rgb(243, 244, 246);
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+  border-radius: 0.25rem;
+  color: rgb(59, 130, 246);
+}
+
+.dark .trust-code-highlight {
+  background-color: rgb(31, 41, 55);
+}

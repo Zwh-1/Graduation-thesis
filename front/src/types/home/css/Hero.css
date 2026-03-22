@@ -1,0 +1,605 @@
+/* ================= HeroSection 样式文件 ================= */
+
+/* ================= 全局共享工具类 ================= */
+
+/* ================= 容器样式 ================= */
+.container-base {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-base {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-base {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ================= 暗黑模式背景切换 ================= */
+.bg-light-mode {
+  background-color: white;
+}
+
+.bg-dark-mode {
+  background-color: rgb(17, 24, 39);
+}
+
+.bg-privacy-light {
+  background-color: rgb(248, 250, 252);
+}
+
+.bg-privacy-dark {
+  background-color: rgb(15, 23, 42);
+}
+
+/* ================= 过渡效果 ================= */
+.transition-bg {
+  transition: background-color 300ms ease;
+}
+
+.transition-color {
+  transition: color 300ms ease;
+}
+
+.transition-all {
+  transition: all 300ms ease;
+}
+
+/* ================= 动画关键帧 ================= */
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-0.5rem);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-orb {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
+
+  66% {
+    transform: translate(-20px, 15px) scale(0.97);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-150%) skewX(-12deg);
+  }
+
+  100% {
+    transform: translateX(250%) skewX(-12deg);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes icon-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(13, 148, 136, 0);
+  }
+}
+
+/* ================= 暗黑模式主题变量 ================= */
+
+/* ================= 暗黑模式背景 ================= */
+.dark .bg-light-mode {
+  background-color: rgb(17, 24, 39);
+}
+
+.dark .bg-privacy-light {
+  background-color: rgb(15, 23, 42);
+}
+
+/* ================= 暗黑模式文字颜色 ================= */
+.dark .text-slate-900 {
+  color: white;
+}
+
+.dark .text-slate-600 {
+  color: rgb(203, 213, 225);
+}
+
+.dark .text-slate-400 {
+  color: rgb(148, 163, 184);
+}
+
+.dark .text-slate-500 {
+  color: rgb(100, 116, 139);
+}
+
+.dark .text-slate-700 {
+  color: rgb(209, 213, 219);
+}
+
+/* ================= 暗黑模式边框 ================= */
+.dark .border-slate-200 {
+  border-color: rgb(75, 85, 99);
+}
+
+.dark .border-slate-700 {
+  border-color: rgb(55, 65, 81);
+}
+
+/* ================= 暗黑模式背景色 ================= */
+.dark .bg-white {
+  background-color: rgb(31, 41, 55);
+}
+
+.dark .bg-slate-50 {
+  background-color: rgb(15, 23, 42);
+}
+
+.dark .bg-slate-800 {
+  background-color: rgb(17, 24, 39);
+}
+
+/* ================= 暗黑模式阴影 ================= */
+.dark .shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.dark .shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* ================= 暗黑模式按钮 ================= */
+.dark .btn-primary {
+  background-color: rgb(15, 118, 110);
+  box-shadow: 0 6px 8px -1px rgba(13, 148, 136, 0.7);
+}
+
+.dark .btn-secondary {
+  background-color: rgb(31, 41, 55);
+  color: rgb(203, 213, 225);
+  border-color: rgb(75, 85, 99);
+}
+
+/* ================= 暗黑模式卡片 ================= */
+.dark .card-base {
+  background-color: rgb(31, 41, 55);
+  border-color: rgb(75, 85, 99);
+}
+
+/* ================= 暗黑模式输入框 ================= */
+.dark .input-base {
+  background-color: rgb(15, 23, 42);
+  border-color: rgb(75, 85, 99);
+  color: white;
+}
+
+/* ================= 暗黑模式状态指示器 ================= */
+.dark .status-indicator.idle {
+  background-color: rgb(15, 23, 42);
+}
+
+.dark .status-indicator.proving {
+  background-color: rgb(15, 23, 42);
+}
+
+.dark .status-indicator.verified {
+  background-color: rgb(15, 23, 42);
+}
+
+/* ================= 暗黑模式结果卡片 ================= */
+.dark .result-card.success {
+  background-color: rgba(5, 150, 105, 0.1);
+  color: rgb(134, 239, 172);
+}
+
+.dark .result-card.failure {
+  background-color: rgba(220, 38, 38, 0.1);
+  color: rgb(252, 165, 165);
+}
+
+/* ================= 暗黑模式动画 ================= */
+.dark .animate-pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.dark .animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ================= 暗黑模式过渡 ================= */
+.dark .transition-bg {
+  transition: background-color 300ms ease;
+}
+
+.dark .transition-color {
+  transition: color 300ms ease;
+}
+
+.dark .transition-all {
+  transition: all 300ms ease;
+}
+
+/* ================= 主容器样式 ================= */
+.hero-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+/* ================= 背景图片层 ================= */
+.hero-background-image-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================= 背景遮罩层 ================= */
+.hero-background-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ================= 装饰网格层 ================= */
+.hero-grid-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* ================= 滚动进度指示器 ================= */
+.hero-scrollbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(to right, #0d9488, #10b981, #06b6d4);
+  z-index: 60;
+  box-shadow: 0 0 8px rgba(13, 148, 136, 0.6);
+}
+
+/* ================= 背景装饰光球 ================= */
+.hero-orb-1 {
+  position: absolute;
+  top: -10%;
+  left: -5%;
+  width: 45rem;
+  height: 45rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(13, 148, 136, 0.18) 0%, rgba(16, 185, 129, 0.08) 50%, transparent 70%);
+  filter: blur(60px);
+  animation: float-orb 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-orb-2 {
+  position: absolute;
+  bottom: -15%;
+  right: -5%;
+  width: 40rem;
+  height: 40rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, rgba(20, 184, 166, 0.06) 50%, transparent 70%);
+  filter: blur(70px);
+  animation: float-orb 16s ease-in-out infinite reverse;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ================= 渐变标题文字 ================= */
+.hero-gradient-text {
+  background: linear-gradient(135deg, #2dd4bf 0%, #10b981 40%, #34d399 70%, #0891b2 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 6s ease infinite;
+}
+
+/* ================= 宽松模式内容层 ================= */
+.hero-content-layer {
+  position: relative;
+  z-index: 20;
+  container: layout / inline-size;
+}
+
+.hero-content-container {
+  max-width: 4xl;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================= 紧凑模式内容层 ================= */
+.hero-compact-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  container: layout / inline-size;
+}
+
+/* ================= 底部滚动指示器 ================= */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 500ms ease;
+}
+
+.hero-scroll-indicator-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: bounce 1s infinite;
+}
+
+/* ================= CTA 按钮组 ================= */
+.hero-cta-buttons {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero-cta-primary {
+  position: relative;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+  background: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
+  border-radius: 9999px;
+  font-weight: 600;
+  color: white;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.4);
+}
+
+.hero-cta-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.3) 50%, transparent 60%);
+  transform: translateX(-150%) skewX(-12deg);
+  border-radius: 9999px;
+}
+
+.hero-cta-primary:hover {
+  background: linear-gradient(135deg, #0f766e 0%, #0e7490 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(13, 148, 136, 0.55);
+}
+
+.hero-cta-primary:hover::after {
+  animation: shimmer 0.7s ease forwards;
+}
+
+.hero-cta-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(13, 148, 136, 0.4);
+}
+
+.hero-cta-primary-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 0.5rem;
+}
+
+
+.hero-cta-secondary {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  font-weight: 500;
+  color: white;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-cta-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ================= 特性图标发光圈 ================= */
+.hero-icon-glow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+  animation: icon-pulse 3s ease-in-out infinite;
+}
+
+.hero-icon-glow-night {
+  background: radial-gradient(circle, rgba(45, 212, 191, 0.15) 0%, rgba(13, 148, 136, 0.05) 70%);
+  border: 1px solid rgba(45, 212, 191, 0.2);
+}
+
+.hero-icon-glow-day {
+  background: radial-gradient(circle, rgba(13, 148, 136, 0.12) 0%, rgba(13, 148, 136, 0.03) 70%);
+  border: 1px solid rgba(13, 148, 136, 0.2);
+}
+
+/* ================= 标题样式 ================= */
+.hero-title {
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.75rem;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.hero-title-medium {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.hero-title-large {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.hero-subtitle {
+  font-weight: 300;
+  line-height: 1.625;
+  font-size: 1.125rem;
+  max-width: 48rem;
+}
+
+.hero-subtitle-medium {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+/* ================= 按钮图标动画 ================= */
+.hero-cta-icon {
+  transition: transform 300ms ease;
+}
+
+.hero-cta-primary:hover .hero-cta-icon {
+  transform: translateX(4px);
+}
+
+/* ================= 动画定义 ================= */
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-8px);
+  }
+
+  60% {
+    transform: translateY(-4px);
+  }
+}

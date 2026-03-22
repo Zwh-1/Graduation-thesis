@@ -1,0 +1,300 @@
+/* ==================== Workflow Section Styles ==================== */
+
+/* ================= 标题区域 ================= */
+.workflow-title-area {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.workflow-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(13, 148, 136);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.workflow-subtitle {
+  margin-top: 0.5rem;
+  font-size: 1.875rem;
+  line-height: 2;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: rgb(17, 24, 39);
+  transition: color 300ms ease;
+}
+
+.dark .workflow-subtitle {
+  color: white;
+}
+
+@media (min-width: 640px) {
+  .workflow-subtitle {
+    font-size: 2.25rem;
+  }
+}
+
+.workflow-description {
+  margin-top: 1rem;
+  max-width: 42rem;
+  font-size: 1.25rem;
+  color: rgb(107, 114, 128);
+  margin-left: auto;
+  margin-right: auto;
+  transition: color 300ms ease;
+}
+
+.dark .workflow-description {
+  color: rgb(156, 163, 175);
+}
+
+/* ================= 容器相对定位 ================= */
+.workflow-container-relative {
+  position: relative;
+}
+
+/* ================= SVG 连接线容器 ================= */
+.workflow-svg-line {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.workflow-svg-mobile {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .workflow-svg-mobile {
+    display: none;
+  }
+}
+
+.workflow-svg-desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .workflow-svg-desktop {
+    display: block;
+    width: 100%;
+    height: 8rem;
+    overflow: visible;
+  }
+}
+
+/* ================= 卡片网格 ================= */
+.workflow-card-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .workflow-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ================= 卡片容器 ================= */
+.workflow-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: transparent;
+  border-radius: 1.25rem;
+  padding: 1.5rem 1rem;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.workflow-card:hover {
+  transform: translateY(-4px);
+}
+
+.workflow-card:hover .workflow-icon-container {
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15), 0 20px 40px -5px rgba(13, 148, 136, 0.25);
+  transform: scale(1.08);
+}
+
+/* ================= 图标容器 ================= */
+.workflow-icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(13, 148, 136, 0.25);
+  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.15), 0 8px 20px -3px rgba(0, 0, 0, 0.1);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(16, 185, 129, 0.04) 100%);
+}
+
+/* ================= 核心徽章 ================= */
+.workflow-core-badge {
+  position: absolute;
+  top: -0.75rem;
+  right: -0.75rem;
+  background: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
+  color: white;
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.4);
+  letter-spacing: 0.05em;
+}
+
+/* ================= 装饰性光环 ================= */
+.workflow-icon-container-hover {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  border-width: 2px;
+  opacity: 0;
+}
+
+/* ================= 卡片标题 ================= */
+.workflow-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgb(17, 24, 39);
+  margin-bottom: 0.5rem;
+  transition: color 300ms ease;
+}
+
+.dark .workflow-card-title {
+  color: white;
+}
+
+/* ================= 卡片副标题 ================= */
+.workflow-card-subtitle {
+  font-size: 0.75rem;
+  font-family: monospace;
+  color: rgb(107, 114, 128);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 300ms ease;
+}
+
+.dark .workflow-card-subtitle {
+  color: rgb(156, 163, 175);
+}
+
+/* ================= 卡片描述 ================= */
+.workflow-card-description {
+  color: rgb(75, 85, 99);
+  line-height: 1.625;
+  font-size: 0.875rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  transition: color 300ms ease;
+}
+
+.dark .workflow-card-description {
+  color: rgb(209, 213, 219);
+}
+
+/* ================= 箭头指示器 ================= */
+.workflow-arrow-down {
+  margin-top: 2rem;
+  color: rgb(156, 163, 175);
+}
+
+.workflow-arrow-right {
+  position: absolute;
+  right: -1.5rem;
+  top: 2.5rem;
+  color: rgb(156, 163, 175);
+}
+
+@media (min-width: 768px) {
+  .workflow-arrow-right {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .workflow-arrow-right {
+    display: none;
+  }
+}
+
+/* ================= 技术栈区域 ================= */
+.workflow-technologies {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgb(229, 231, 235);
+  text-align: center;
+  transition: border-top-color 300ms ease;
+}
+
+.dark .workflow-technologies {
+  border-top-color: rgb(55, 65, 81);
+}
+
+.workflow-tech-label {
+  font-size: 0.875rem;
+  color: rgb(107, 114, 128);
+  margin-bottom: 1rem;
+  transition: color 300ms ease;
+}
+
+.dark .workflow-tech-label {
+  color: rgb(156, 163, 175);
+}
+
+.workflow-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.workflow-tech-tag {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  background-color: white;
+  border: 1px solid rgb(229, 231, 235);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgb(75, 85, 99);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 300ms ease;
+}
+
+.dark .workflow-tech-tag {
+  background-color: rgb(31, 41, 55);
+  border-color: rgb(55, 65, 81);
+  color: rgb(209, 213, 219);
+}
+
+.workflow-tech-tag:hover {
+  border-color: rgba(13, 148, 136, 0.5);
+  color: rgb(13, 148, 136);
+  box-shadow: 0 0 0 2px rgba(13, 148, 136, 0.1);
+}
+
+.dark .workflow-tech-tag:hover {
+  border-color: rgba(45, 212, 191, 0.4);
+  color: rgb(45, 212, 191);
+  box-shadow: 0 0 0 2px rgba(45, 212, 191, 0.08);
+}

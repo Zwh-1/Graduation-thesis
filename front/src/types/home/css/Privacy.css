@@ -1,0 +1,573 @@
+/* ==================== Privacy Demo Styles ==================== */
+
+/* ================= 头部区域 ================= */
+.privacy-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.privacy-title {
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: rgb(15, 23, 42);
+  transition: color 300ms ease;
+}
+
+.dark .privacy-title {
+  color: white;
+}
+
+@media (min-width: 640px) {
+  .privacy-title {
+    font-size: 2.25rem;
+  }
+}
+
+.privacy-subtitle {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  color: rgb(71, 85, 105);
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  transition: color 300ms ease;
+}
+
+.dark .privacy-subtitle {
+  color: rgb(203, 213, 225);
+}
+
+.privacy-subtitle strong {
+  color: rgb(13, 148, 136);
+}
+
+.dark .privacy-subtitle strong {
+  color: rgb(20, 184, 166);
+}
+
+/* ================= 模式切换开关 ================= */
+.privacy-mode-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.privacy-mode-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.privacy-mode-label.active-traditional {
+  color: rgb(239, 68, 68);
+}
+
+.privacy-mode-label.active-zkp {
+  color: rgb(148, 163, 184);
+}
+
+.privacy-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 2rem;
+  border-radius: 9999px;
+  transition: background-color 300ms ease;
+  outline: none;
+}
+
+.privacy-toggle:focus {
+  ring-width: 2px;
+  ring-color: rgb(13, 148, 136);
+  ring-offset-width: 2px;
+}
+
+.privacy-toggle-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  transition: background-color 300ms ease;
+}
+
+.privacy-toggle-bg.zkp {
+  background-color: rgb(13, 148, 136);
+}
+
+.privacy-toggle-bg.traditional {
+  background-color: rgb(209, 213, 219);
+}
+
+.privacy-toggle-thumb {
+  position: relative;
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: white;
+  border-radius: 9999px;
+  transition: transform 300ms ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-toggle-bg.zkp .privacy-toggle-thumb {
+  transform: translateX(1.5rem);
+}
+
+/* ================= 主体布局 ================= */
+.privacy-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .privacy-main-content {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 4rem;
+  }
+}
+
+/* ================= 左侧表单区域 ================= */
+.privacy-form-section {
+  flex: 1;
+}
+
+.privacy-form-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  margin-bottom: 1.5rem;
+  transition: color 300ms ease;
+}
+
+.dark .privacy-form-title {
+  color: white;
+}
+
+.privacy-form-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .privacy-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ================= 输入框组 ================= */
+.privacy-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.privacy-input-label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgb(51, 65, 85);
+  transition: color 300ms ease;
+}
+
+.dark .privacy-input-label {
+  color: rgb(203, 213, 225);
+}
+
+.privacy-input-label-icon {
+  color: rgb(148, 163, 184);
+}
+
+.privacy-input {
+  width: 100%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: rgb(241, 245, 249);
+  border: 1px solid rgb(203, 213, 225);
+  border-radius: 0.375rem;
+  transition: all 300ms ease;
+  outline: none;
+  color: rgb(15, 23, 42);
+  font-family: monospace;
+  font-size: 0.875rem;
+}
+
+.dark .privacy-input {
+  background-color: rgb(15, 23, 42);
+  border-color: rgb(75, 85, 99);
+  color: white;
+}
+
+.privacy-input:focus {
+  ring-width: 2px;
+  ring-color: rgb(13, 148, 136);
+  border-color: rgb(13, 148, 136);
+}
+
+/* ================= 按钮区域 ================= */
+.privacy-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .privacy-actions {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
+.privacy-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 300ms ease;
+  cursor: pointer;
+  border: none;
+}
+
+.privacy-btn-primary {
+  background-color: rgb(13, 148, 136);
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.5);
+}
+
+.privacy-btn-primary:hover {
+  background-color: rgb(15, 118, 110);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 8px -1px rgba(13, 148, 136, 0.7);
+}
+
+.privacy-btn-primary:active {
+  transform: translateY(0);
+}
+
+.privacy-btn-secondary {
+  background-color: white;
+  color: rgb(75, 85, 99);
+  border: 1px solid rgb(203, 213, 225);
+}
+
+.dark .privacy-btn-secondary {
+  background-color: rgb(31, 41, 55);
+  color: rgb(203, 213, 225);
+  border-color: rgb(75, 85, 99);
+}
+
+.privacy-btn-secondary:hover {
+  background-color: rgb(249, 250, 251);
+  border-color: rgb(148, 163, 184);
+}
+
+.dark .privacy-btn-secondary:hover {
+  background-color: rgb(15, 23, 42);
+}
+
+/* ================= 右侧演示区域 ================= */
+.privacy-demo-section {
+  flex: 1;
+  background-color: white;
+  border-radius: 1rem;
+  border: 1px solid rgb(203, 213, 225);
+  padding: 2rem;
+  transition: all 300ms ease;
+}
+
+.dark .privacy-demo-section {
+  background-color: rgb(31, 41, 55);
+  border-color: rgb(75, 85, 99);
+}
+
+.privacy-demo-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  margin-bottom: 1.5rem;
+  transition: color 300ms ease;
+}
+
+.dark .privacy-demo-title {
+  color: white;
+}
+
+/* ================= 状态指示器 ================= */
+.privacy-status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.privacy-status-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+}
+
+.privacy-status-indicator.idle {
+  background-color: rgb(241, 245, 249);
+  color: rgb(148, 163, 184);
+}
+
+.dark .privacy-status-indicator.idle {
+  background-color: rgb(15, 23, 42);
+}
+
+.privacy-status-indicator.proving {
+  background-color: rgb(241, 245, 249);
+  color: rgb(13, 148, 136);
+  animation: spin 1s linear infinite;
+}
+
+.dark .privacy-status-indicator.proving {
+  background-color: rgb(15, 23, 42);
+}
+
+.privacy-status-indicator.verified {
+  background-color: rgb(240, 249, 255);
+  color: rgb(34, 197, 94);
+}
+
+.dark .privacy-status-indicator.verified {
+  background-color: rgb(15, 23, 42);
+}
+
+.privacy-status-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  transition: color 300ms ease;
+}
+
+.dark .privacy-status-text {
+  color: white;
+}
+
+/* ================= 结果展示 ================= */
+.privacy-result-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.privacy-result-card.success {
+  background-color: rgb(240, 255, 240);
+  color: rgb(22, 163, 74);
+}
+
+.dark .privacy-result-card.success {
+  background-color: rgba(5, 150, 105, 0.1);
+  color: rgb(134, 239, 172);
+}
+
+.privacy-result-card.failure {
+  background-color: rgb(255, 240, 240);
+  color: rgb(220, 38, 38);
+}
+
+.dark .privacy-result-card.failure {
+  background-color: rgba(220, 38, 38, 0.1);
+  color: rgb(252, 165, 165);
+}
+
+.privacy-result-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.privacy-result-content {
+  flex: 1;
+}
+
+.privacy-result-title {
+  font-weight: 700;
+}
+
+.privacy-result-message {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* ================= 数据展示区 ================= */
+.privacy-data-display {
+  background-color: rgb(241, 245, 249);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  overflow: hidden;
+}
+
+.dark .privacy-data-display {
+  background-color: rgb(15, 23, 42);
+}
+
+.privacy-data-header {
+  color: rgb(100, 116, 139);
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgb(203, 213, 225);
+  padding-bottom: 0.25rem;
+}
+
+.dark .privacy-data-header {
+  border-bottom-color: rgb(75, 85, 99);
+}
+
+.privacy-data-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* ================= ZKP 数据样式 ================= */
+.privacy-zkp-data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.privacy-zkp-brace {
+  color: rgb(168, 85, 247);
+}
+
+.privacy-zkp-comment {
+  color: rgb(148, 163, 184);
+}
+
+.privacy-zkp-key {
+  color: rgb(96, 165, 250);
+}
+
+.privacy-zkp-colon {
+  color: rgb(100, 116, 139);
+}
+
+.privacy-zkp-value-proof {
+  color: rgb(74, 222, 128);
+}
+
+.privacy-zkp-value-bool {
+  color: rgb(74, 222, 128);
+}
+
+.dark .privacy-zkp-value-bool {
+  color: rgb(248, 113, 113);
+}
+
+.privacy-zkp-value-timestamp {
+  color: rgb(234, 179, 8);
+}
+
+/* ================= 传统数据样式 ================= */
+.privacy-traditional-data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.privacy-traditional-brace {
+  color: rgb(239, 68, 68);
+}
+
+.privacy-traditional-comment {
+  color: rgb(148, 163, 184);
+}
+
+.privacy-traditional-key {
+  color: rgb(96, 165, 250);
+}
+
+.privacy-traditional-colon {
+  color: rgb(100, 116, 139);
+}
+
+.privacy-traditional-value {
+  color: rgb(239, 68, 68);
+}
+
+.privacy-traditional-ip {
+  color: rgb(234, 179, 8);
+}
+
+/* ================= 说明文字 ================= */
+.privacy-note {
+  margin-top: 0.75rem;
+  padding-left: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.625rem;
+  color: rgb(100, 116, 139);
+}
+
+.privacy-note-icon {
+  margin-top: 0.125rem;
+}
+
+.privacy-note-success {
+  color: rgb(34, 197, 94);
+}
+
+.privacy-note-warning {
+  color: rgb(239, 68, 68);
+}
+
+/* ================= 底部说明 ================= */
+.privacy-footer {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+  font-size: 0.875rem;
+  color: rgb(71, 85, 105);
+  transition: color 300ms ease;
+}
+
+.dark .privacy-footer {
+  color: rgb(203, 213, 225);
+}
+
+@media (min-width: 768px) {
+  .privacy-footer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.privacy-footer-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.privacy-footer-icon {
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
